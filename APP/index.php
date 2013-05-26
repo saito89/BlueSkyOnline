@@ -8,7 +8,6 @@
         <?php
         // put your code here
         echo 'estara entrando aqui';
-        include '../EN/usuarioEN.php';
         include '../DA/userAD.php';
         echo "empieza \n";
         $uAD = new userAD();
