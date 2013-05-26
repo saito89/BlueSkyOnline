@@ -25,7 +25,7 @@ class userAD
             $uEN->setIdUsuario($resPro['fechaNacimiento']);
             $uEN->setIdUsuario($resPro['descripcion']);   
             
-            echo $uEN->getIdUsuario();
+            //echo $uEN->getIdUsuario();
             $connection->closeMySqlDB();
             
             return $uEN;
