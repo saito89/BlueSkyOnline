@@ -7,14 +7,14 @@
     <body>
         <?php
         // put your code here
-        echo 'estara entrando aqui';
+        echo 'estara entrando aqui \r\n';
         include '../DA/userAD.php';
-        echo "empieza \n";
+        echo "empieza \r\n";
         $uAD = new userAD();
-        echo "creo instancia de userAD \n";
+        echo "creo instancia de userAD \r\n";
         $uEN = $uAD->usuarioSLogin('saito89','hola');
-        echo "llamo metodo usuarioSLogin \n";
-        echo $uEN->getIdUsuario()."\n".$uEN->getUserName()."\n".$uEN->getPassword()."\n".$uEN->getTipo()."\n".$uEN->getNombre()."\n".$uEN->getFechaNacimiento()."\n".$uEN->getDescripcion();
+        echo "llamo metodo usuarioSLogin \r\n";
+        echo $uEN->getIdUsuario()."\r\n".$uEN->getUserName()."\r\n".$uEN->getPassword()."\r\n".$uEN->getTipo()."\r\n".$uEN->getNombre()."\r\n".$uEN->getFechaNacimiento()."\r\n".$uEN->getDescripcion();
         ?>
     </body>
 </html>
