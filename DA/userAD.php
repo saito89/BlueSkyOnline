@@ -16,6 +16,7 @@ class userAD
             $db = $connection->openMySqlDB('190.7.192.3','espe','T3cn0l0gic0.2013','bluesky');
             $res = mysqli_query($db, "call usuarioSLogin('$_userName','$_password')");
             $uEN = new usuarioEN();
+            $connection->closeMySqlDB();
             $resPro = mysqli_fetch_array($res);
             $uEN->setIdUsuario($resPro['idUsuario']);
             $uEN->setIdUsuario($resPro['userName']);
@@ -25,8 +26,8 @@ class userAD
             $uEN->setIdUsuario($resPro['fechaNacimiento']);
             $uEN->setIdUsuario($resPro['descripcion']);   
             
-            //echo $uEN->getIdUsuario();
-            $connection->closeMySqlDB();
+            echo $uEN->getIdUsuario();
+            
             
             return $uEN;
         }
