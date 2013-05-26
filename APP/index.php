@@ -7,6 +7,7 @@
     <body>
         <?php
         //jhgjhg
+        //cambio
         include '../LG/userLG.php';
         include '../LG/cursoLG.php';
         $uLG = new userLG();
