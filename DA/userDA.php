@@ -6,7 +6,7 @@ include '../EN/usuarioEN.php';
  * and open the template in the editor.
  */
 
-class userAD
+class userDA
 {
     function usuarioSLogin($_userName,$_password)
     {
