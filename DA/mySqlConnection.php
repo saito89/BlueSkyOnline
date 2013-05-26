@@ -15,10 +15,8 @@ class mySqlConnection
     {
 	try
 	{
-            echo "inicia apertura Base";
             echo $_hostName,$_userName,$_password,$_dataBaseName;
 		$this->dbHandle = mysqli_connect($_hostName,$_userName,$_password,$_dataBaseName) or die ("No se puede conectar a la base de datos");
-		echo "Connected";
 		
 	}
 	catch(Exception $ex)
@@ -32,9 +30,7 @@ class mySqlConnection
     {
 	try
 	{
-                echo "inicia cierre coneccion base";
 		mysqli_close($this->dbHandle);
-		echo "Closed connection";
 	}
 	catch (Exception $ex)
 	{

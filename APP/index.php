@@ -8,12 +8,10 @@
         <?php
         // put your code here
         include("../DA/userAD.php");
-        echo "empieza";
+        include '../EN/usuarioEN.php';
         $uAD = new userAD();
-        echo "se creo la instancia de userAD";
-        $uAD->usuarioSLogin('saito89','hola');
-        echo "se ejecuto el metodo usuarioSLogin";
-        phpinfo();
+        $uEN = $uAD->usuarioSLogin('saito89','hola');
+        echo $uEN->getIdUsuario()."\n".$uEN->getUserName()."\n".$uEN->getPassword()."\n".$uEN->getTipo()."\n".$uEN->getNombre()."\n".$uEN->getFechaNacimiento()."\n".$uEN->getDescripcion();
         ?>
     </body>
 </html>
