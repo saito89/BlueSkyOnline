@@ -8,8 +8,11 @@
         <?php
         // put your code here
         include("DA/userAD.php");
+        echo "empieza";
         $userAd = new userAD();
+        echo "se creo la instancia de userAD";
         $userAd->usuarioSLogin('saito89','hola');
+        echo "se ejecuto el metodo usuarioSLogin";
         phpinfo();
         ?>
     </body>
