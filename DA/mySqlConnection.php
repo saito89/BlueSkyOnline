@@ -16,6 +16,7 @@ class mySqlConnection
 	try
 	{
             echo "inicia apertura Base";
+            echo $_hostName,$_userName,$_password,$_dataBaseName;
 		$this->dbHandle = mysqli_connect($_hostName,$_userName,$_password,$_dataBaseName) or die ("No se puede conectar a la base de datos");
 		echo "Connected";
 		
