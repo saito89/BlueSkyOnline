@@ -11,9 +11,11 @@ final class userAD
     {
         try
         {
-            $db = mySqlConnection::openMySqlDB('190.7.192.3','espe','T3cn0l0gic0.2013','bluesky');
+            $connection = new mySqlConnection();
+            $db = $connection->openMySqlDB('190.7.192.3','espe','T3cn0l0gic0.2013','bluesky');
+            //$db = mySqlConnection::openMySqlDB('190.7.192.3','espe','T3cn0l0gic0.2013','bluesky');
             $res = mysqli_query($db, "call usuarioSLogin('$_userName','$_password')");
-            mySqlConnection::closeMySqlDB();
+            $connection-->closeMySqlDB();
             return $res;
         }
         catch(Exception $ex)
