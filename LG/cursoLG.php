@@ -1,17 +1,17 @@
 <?php
-include '../DA/userDA.php';
+include '../DA/cursoDA.php';
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-class userLG
+class cursoLG
 {
-    function usuarioSLogin($_userName,$_password)
+    function cursoSInfo($_idUsuario)
     {
         try
         {
-            $uAD = new userDA();
-            return $uAD->usuarioSLogin($_userName, $_password);
+            $cAD = new cursoDA();
+            return $cAD->cursoSInfo($_idUsuario);
         }
         catch(Exception $ex)
         {

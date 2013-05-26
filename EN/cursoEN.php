@@ -12,6 +12,7 @@ class cursoEN
     private $sigla;
     private $horario;
     private $creditos;
+    private $calificacion;
     
     public function getIdCurso() {
         return $this->idCurso;
@@ -51,6 +52,13 @@ class cursoEN
 
     public function setCreditos($creditos) {
         $this->creditos = $creditos;
+    }
+    public function getCalificacion() {
+        return $this->calificacion;
+    }
+
+    public function setCalificacion($calificacion) {
+        $this->calificacion = $calificacion;
     }
 }
 ?>
