@@ -7,13 +7,13 @@
     <body>
         <?php
         // put your code here
-        echo 'estara entrando aqui <br>';
-        include '../DA/userAD.php';
-        echo "empieza <br>";
+        /*include '../DA/userAD.php';
         $uAD = new userAD();
-        echo "creo instancia de userAD <br>";
         $uEN = $uAD->usuarioSLogin('200808666','3908');
-        echo "llamo metodo usuarioSLogin <br>";
+        echo $uEN->getIdUsuario()."<br>".$uEN->getUserName()."<br>".$uEN->getPassword()."<br>".$uEN->getTipo()."<br>".$uEN->getNombre()."<br>".$uEN->getFechaNacimiento()."<br>".$uEN->getDescripcion()."<br>";*/
+        include '../LG/userLG.php';
+        $uLG = new userLG();
+        $uEN = $uLG->usuarioSLogin('200808666','3908');
         echo $uEN->getIdUsuario()."<br>".$uEN->getUserName()."<br>".$uEN->getPassword()."<br>".$uEN->getTipo()."<br>".$uEN->getNombre()."<br>".$uEN->getFechaNacimiento()."<br>".$uEN->getDescripcion()."<br>";
         ?>
     </body>
