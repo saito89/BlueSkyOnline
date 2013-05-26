@@ -19,16 +19,12 @@ class userAD
             $connection->closeMySqlDB();
             $resPro = mysqli_fetch_array($res);
             $uEN->setIdUsuario($resPro['idUsuario']);
-            $uEN->setIdUsuario($resPro['userName']);
-            $uEN->setIdUsuario($resPro['password']);
-            $uEN->setIdUsuario($resPro['TipoUsuario_idTipoUsuario']);
-            $uEN->setIdUsuario($resPro['nombre']);
-            $uEN->setIdUsuario($resPro['fechaNacimiento']);
-            $uEN->setIdUsuario($resPro['descripcion']);   
-            
-            echo $uEN->getIdUsuario();
-            
-            
+            $uEN->setUserName($resPro['userName']);
+            $uEN->setPassword($resPro['password']);
+            $uEN->setTipoUsuario_idTipoUsuario($resPro['TipoUsuario_idTipoUsuario']);
+            $uEN->setNombre($resPro['nombre']);
+            $uEN->setFechaNacimiento($resPro['fechaNacimiento']);
+            $uEN->setDescripcion($resPro['descripcion']);   
             return $uEN;
         }
         catch(Exception $ex)
