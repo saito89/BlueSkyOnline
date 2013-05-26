@@ -1,11 +1,11 @@
 <?php
-
+include '../mySqlConnection';
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 
-final class userAD
+class userAD
 {
     function usuarioSLogin($_userName,$_password)
     {

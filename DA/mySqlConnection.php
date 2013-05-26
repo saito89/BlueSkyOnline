@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 
-final class mySqlConnection
+class mySqlConnection
 {
     //Connection handler
     private $dbHandle;
