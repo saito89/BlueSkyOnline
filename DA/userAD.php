@@ -18,7 +18,7 @@ class userAD
             $uEN = new usuarioEN();
             $connection->closeMySqlDB();
             $resPro = mysqli_fetch_array($res);
-            //$uEN->setIdUsuario($resPro['idUsuario']);
+            $uEN->setIdUsuario($resPro['idUsuario']);
             //$uEN->setUserName($resPro['userName']);
             //$uEN->setPassword($resPro['password']);
             //$uEN->setTipoUsuario_idTipoUsuario($resPro['TipoUsuario_idTipoUsuario']);
