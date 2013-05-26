@@ -7,6 +7,7 @@
     <body>
         <?php
         // put your code here
+        echo 'estara entrando aqui';
         include '../DA/userAD.php';
         include '../EN/usuarioEN.php';
         echo "empieza \n";
