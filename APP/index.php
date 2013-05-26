@@ -7,7 +7,7 @@
     <body>
         <?php
         // put your code here
-        include("DA/userAD.php");
+        include("../DA/userAD.php");
         echo "empieza";
         $uAD = new userAD();
         echo "se creo la instancia de userAD";
