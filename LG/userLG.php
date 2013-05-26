@@ -1,5 +1,6 @@
 <?php
 include '../AD/userAD.php';
+include '../EN/usuarioEN.php';
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
