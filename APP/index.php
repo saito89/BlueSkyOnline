@@ -6,6 +6,7 @@
     </head>
     <body>
         <?php
+        //jhgjhg
         include '../LG/userLG.php';
         include '../LG/cursoLG.php';
         $uLG = new userLG();
