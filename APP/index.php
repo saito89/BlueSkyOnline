@@ -9,7 +9,6 @@
         // put your code here
         echo 'estara entrando aqui';
         include '../DA/userAD.php';
-        include '../EN/usuarioEN.php';
         echo "empieza \n";
         $uAD = new userAD();
         echo "creo instancia de userAD \n";
