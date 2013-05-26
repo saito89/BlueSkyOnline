@@ -7,6 +7,8 @@
     <body>
         <?php
         // put your code here
+        include("DA/userAD.php");
+        userAD::usuarioSLogin('saito89','hola');
         phpinfo();
         ?>
     </body>
