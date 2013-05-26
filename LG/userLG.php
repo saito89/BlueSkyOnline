@@ -1,6 +1,5 @@
 <?php
 include '../AD/userAD.php';
-include '../EN/usuarioEN.php';
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -11,8 +10,11 @@ class userLG
     {
         try
         {
+            echo "entro a usuarioSLogin del LG <br>";
             $uAD = new userAD();
+            echo "creo instancia de userAD <br>";
             return $uAD->usuarioSLogin($_userName, $_password);
+            echo "devolvio entidad de usuario";
         }
         catch(Exception $ex)
         {
