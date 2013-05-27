@@ -55,6 +55,7 @@
         $aLG->asignacionI($as);
         echo "Se inserto la asignacion <br>";*/
         
+        /*
         $as = new asignacionEN();
         $as->setIdAsignacion(3);
         $as->setNombre('Proyecto 3');
@@ -65,7 +66,10 @@
         $as->setPorcentaje(22);
         $as->setIdCurso(2);
         $aLG->asignacionU($as);
-        echo "Se actualizo la asignacion <br>";
+        echo "Se actualizo la asignacion <br>";*/
+        
+        $aLG->asignacionD(3);
+        echo "se elimino la asignacion <br>";
         
         ?>
     </body>

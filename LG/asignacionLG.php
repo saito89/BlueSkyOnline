@@ -43,5 +43,18 @@ class asignacionLG
             echo $ex->getMessage();
         }
     }
+    
+    function asignacionD($_idAsignacion)
+    {
+        try
+        {
+            $aAD = new asignacionDA();
+            $aAD->asignacionD($_idAsignacion);
+        }
+        catch(Exception $ex)
+        {
+            echo $ex->getMessage();
+        }
+    }
 }
 ?>
