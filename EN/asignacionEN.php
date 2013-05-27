@@ -8,9 +8,13 @@ class asignacionEN
 {
     private $idAsignaciones;
     private $nombre;
-    private $detalles;
-    private $fechaAsignacion;
-    private $fechaEntrega;
+    private $descripcion;
+    private $fechaHoraAsignacion;
+    private $medioEntrega;
+    private $tipo;
+    private $porcentaje;
+    private $calificacion;
+    
     public function getIdAsignaciones() {
         return $this->idAsignaciones;
     }
@@ -27,28 +31,51 @@ class asignacionEN
         $this->nombre = $nombre;
     }
 
-    public function getDetalles() {
-        return $this->detalles;
+    public function getDescripcion() {
+        return $this->descripcion;
     }
 
-    public function setDetalles($detalles) {
-        $this->detalles = $detalles;
+    public function setDescripcion($descripcion) {
+        $this->descripcion = $descripcion;
     }
 
-    public function getFechaAsignacion() {
-        return $this->fechaAsignacion;
+    public function getFechaHoraAsignacion() {
+        return $this->fechaHoraAsignacion;
     }
 
-    public function setFechaAsignacion($fechaAsignacion) {
-        $this->fechaAsignacion = $fechaAsignacion;
+    public function setFechaHoraAsignacion($fechaHoraAsignacion) {
+        $this->fechaHoraAsignacion = $fechaHoraAsignacion;
+    }
+    
+    public function getMedioEntrega() {
+        return $this->medioEntrega;
     }
 
-    public function getFechaEntrega() {
-        return $this->fechaEntrega;
+    public function setMedioEntrega($medioEntrega) {
+        $this->medioEntrega = $medioEntrega;
+    }
+    
+    public function getTipo() {
+        return $this->tipo;
     }
 
-    public function setFechaEntrega($fechaEntrega) {
-        $this->fechaEntrega = $fechaEntrega;
+    public function setTipo($tipo) {
+        $this->tipo = $tipo;
+    }
+
+        public function getPorcentaje() {
+        return $this->porcentaje;
+    }
+
+    public function setPorcentaje($porcentaje) {
+        $this->porcentaje = $porcentaje;
+    }   
+    public function getCalificacion() {
+        return $this->calificacion;
+    }
+
+    public function setCalificacion($calificacion) {
+        $this->calificacion = $calificacion;
     }
 }
 ?>

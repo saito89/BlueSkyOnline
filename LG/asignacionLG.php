@@ -1,17 +1,17 @@
 <?php
-include '../DA/cursoDA.php';
+include '../DA/asignacionDA.php';
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-class cursoLG
+class asignacionLG
 {
-    function cursoSInfo($_idUsuario)
+    function asignacionSInfo($_idUsuario,$_idAsignacion)
     {
         try
         {
-            $cAD = new cursoDA();
-            return $cAD->cursoSInfo($_idUsuario);
+            $aAD = new asignacionDA();
+            return $aAD->asignacionSInfo($_idUsuario,$_idAsignacion);
         }
         catch(Exception $ex)
         {
