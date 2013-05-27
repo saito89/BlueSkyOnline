@@ -1,5 +1,5 @@
 <?php
-include 'mySqlConnection.php';
+//include 'mySqlConnection.php';
 include '../EN/cursoEN.php';
 /*
  * To change this template, choose Tools | Templates
@@ -24,7 +24,12 @@ class cursoDA
                 $cEN->setHorario($cu['horario']);
                 $cEN->setCreditos($cu['creditos']);
                 $cEN->setCalificacion($cu['calificacion']);
-                echo $cEN->getIdCurso();
+                /*echo $cEN->getIdCurso();
+                echo $cEN->getNombre();
+                echo $cEN->getSigla();
+                echo $cEN->getHorario();
+                echo $cEN->getCreditos();
+                echo $cEN->getCalificacion();*/
                 array_push($listCurso, $cEN);
             }
             return $listCurso;

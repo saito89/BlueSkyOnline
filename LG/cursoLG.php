@@ -8,9 +8,11 @@ class cursoLG
 {
     function cursoSInfo($_idUsuario)
     {
+        echo "entro a cursoSInfo <br>";
         try
         {
             $cAD = new cursoDA();
+            echo "crea instancia de cursoDA <br>";
             return $cAD->cursoSInfo($_idUsuario);
         }
         catch(Exception $ex)
