@@ -47,7 +47,8 @@ class asignacionDA
             echo $_asignacion->getMedioEntrega()." ";
             echo $_asignacion->getTipo()." ";
             echo $_asignacion->getPorcentaje()." ";
-            echo $_asignacion->getCalificacion()."<br>";
+            echo $_asignacion->getCalificacion()." ";
+            echo $_asignacion->getIdCurso()."<br>";
             mysqli_query($db, "call asignacionI('$_asignacion->getNombre()','$_asignacion->getDescripcion()','$_asignacion->getFechaHoraAsignacion()','$_asignacion->getMedioEntrega()','$_asignacion->getTipo()','$_asignacion->getPorcentaje()','$_asignacion->getIdCurso()')");
         }
         catch(Exception $ex)
