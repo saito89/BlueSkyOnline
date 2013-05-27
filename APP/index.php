@@ -9,7 +9,6 @@
         //jhgjhg
         //cambio
         include '../LG/userLG.php';
-        include '../LG/cursoLG.php';
         $uLG = new userLG();
         $uEN = $uLG->usuarioSLogin('200808666','3908');
         echo $uEN->getIdUsuario()."<br>".$uEN->getUserName()."<br>".$uEN->getPassword()."<br>".$uEN->getTipo()."<br>".$uEN->getNombre()."<br>".$uEN->getFechaNacimiento()."<br>".$uEN->getDescripcion()."<br>";
