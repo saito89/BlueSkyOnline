@@ -8,6 +8,7 @@ include '../EN/usuarioEN.php';
 
 class userDA
 {
+    //Selects the info from a usuario using the username and password
     function usuarioSLogin($_userName,$_password)
     {
         try
@@ -25,6 +26,7 @@ class userDA
             $uEN->setNombre($resPro['nombre']);
             $uEN->setFechaNacimiento($resPro['fechaNacimiento']);
             $uEN->setDescripcion($resPro['descripcion']);   
+            $uEN->setCorreoElectronico($resPro['correoElectronico']);  
             return $uEN;
         }
         catch(Exception $ex)

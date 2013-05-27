@@ -13,6 +13,8 @@ class usuarioEN
     private $fechaNacimiento;
     private $descripcion;
     private $tipo;
+    private $correoElectronico;
+    private $idInfoPersona;
     
     public function getIdUsuario() {
         return $this->idUsuario;
@@ -69,5 +71,22 @@ class usuarioEN
     public function setTipo($tipo) {
         $this->tipo = $tipo;
     }
+    public function getCorreoElectronico() {
+        return $this->correoElectronico;
+    }
+
+    public function setCorreoElectronico($correoElectronico) {
+        $this->correoElectronico = $correoElectronico;
+    }
+
+    public function getIdInfoPersona() {
+        return $this->idInfoPersona;
+    }
+
+    public function setIdInfoPersona($idInfoPersona) {
+        $this->idInfoPersona = $idInfoPersona;
+    }
+
+
 }
 ?>

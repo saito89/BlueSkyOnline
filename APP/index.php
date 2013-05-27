@@ -14,7 +14,7 @@
         
         $uLG = new userLG();
         $uEN = $uLG->usuarioSLogin('200808666','3908');
-        echo $uEN->getIdUsuario()."<br>".$uEN->getUserName()."<br>".$uEN->getPassword()."<br>".$uEN->getTipo()."<br>".$uEN->getNombre()."<br>".$uEN->getFechaNacimiento()."<br>".$uEN->getDescripcion()."<br>";
+        echo $uEN->getIdUsuario()."<br>".$uEN->getUserName()."<br>".$uEN->getPassword()."<br>".$uEN->getTipo()."<br>".$uEN->getNombre()."<br>".$uEN->getFechaNacimiento()."<br>".$uEN->getDescripcion()."<br>".$uEN->getCorreoElectronico()."<br>";
                 
         $cLG = new cursoLG();
         $listCurso = $cLG->cursoSInfo(1);
@@ -55,7 +55,7 @@
         $aLG->asignacionI($as);
         echo "Se inserto la asignacion <br>";*/
         
-        /*
+        /*Tested with updated Asignacion
         $as = new asignacionEN();
         $as->setIdAsignacion(3);
         $as->setNombre('Proyecto 3');
@@ -68,8 +68,9 @@
         $aLG->asignacionU($as);
         echo "Se actualizo la asignacion <br>";*/
         
+        /*Tested with deleted Asignacion
         $aLG->asignacionD(3);
-        echo "se elimino la asignacion <br>";
+        echo "se elimino la asignacion <br>";*/
         
         ?>
     </body>

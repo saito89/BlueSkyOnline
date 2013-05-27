@@ -7,6 +7,7 @@ include '../EN/cursoEN.php';
  */
 class cursoDA
 {
+    //Selects all the Cursos from a specific user
     function cursoSInfo($_idUsuario)
     {
         try

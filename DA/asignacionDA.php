@@ -5,7 +5,8 @@ include '../EN/asignacionEN.php';
  * and open the template in the editor.
  */
 class asignacionDA
-{
+{   
+    //Selects the information for a specific asignacion with a specific usuario
     function asignacionSInfo($_idUsuario, $_idAsignacion)
     {
         try
@@ -35,6 +36,7 @@ class asignacionDA
             echo $ex->getMessage();
         }
     }    
+    //Inserts a new asignacion into the DB
     function asignacionI($_asignacion)
     {
         try
@@ -56,6 +58,7 @@ class asignacionDA
             echo $ex->getMessage();
         }
     }  
+    //Updates the attributes of a an Asignacion
     function asignacionU($_asignacion)
     {
         try
@@ -78,7 +81,7 @@ class asignacionDA
             echo $ex->getMessage();
         }
     }
-    
+    //Deletes a specific asignacion
     function asignacionD($_idAsignacion)
     {
         try
