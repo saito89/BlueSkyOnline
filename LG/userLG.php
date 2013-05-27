@@ -18,5 +18,18 @@ class userLG
             echo $ex->getMessage();
         }
     }
+    //Selects all the students within a specific Asignacion
+    function infoPersonalSListaEstudiantes($_idAsignacion)
+    {
+        try
+        {
+            $uAD = new userDA();
+            return $uAD->infoPersonalSListaEstudiantes($_idAsignacion);
+        }
+        catch(Exception $ex)
+        {
+            echo $ex->getMessage();
+        }
+    }
 }
 ?>

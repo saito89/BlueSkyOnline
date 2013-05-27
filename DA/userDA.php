@@ -34,5 +34,37 @@ class userDA
             echo $ex->getMessage();
         }
     }
+    
+    function infoPersonalSListaEstudiantes($_idAsignacion)
+    {
+        try
+        {
+            $connection = new mySqlConnection();
+            $db = $connection->openMySqlDB('190.7.192.3','espe','T3cn0l0gic0.2013','bluesky');
+            $res = mysqli_query($db, "call infoPersonalSListaEstudiantes('$_idAsignacion')");
+            $connection->closeMySqlDB();
+            $listEstudiante = array();
+            while($es = mysqli_fetch_array($res))
+            {
+                $eEN = new estudianteEN();
+                $eEN->setIdAsignacion($es['idAsignacion']);
+                $eEN->setIdUsuario($es['idUsuario']);
+                $eEN->setNombre($es['nombre']);
+                $eEN->setCorreoElectronico($es['correoElectronico']);
+                /*echo $cEN->getIdCurso();
+                echo $cEN->getNombre();
+                echo $cEN->getSigla();
+                echo $cEN->getHorario();
+                echo $cEN->getCreditos();
+                echo $cEN->getCalificacion();*/
+                array_push($listEstudiante, $eEN);
+            }
+            return $listEstudiante;
+        }
+        catch(Exception $ex)
+        {
+            echo $ex->getMessage();
+        }
+    }
 }
 ?>

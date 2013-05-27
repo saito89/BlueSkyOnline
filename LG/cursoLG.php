@@ -18,5 +18,17 @@ class cursoLG
             echo $ex->getMessage();
         }
     }
+    function usuario_has_cursoI($_idUsuario,$_idCurso)
+    {
+        try
+        {
+            $cAD = new cursoDA();
+            return $cAD->usuario_has_cursoI($_idUsuario,$_idCurso);
+        }
+        catch(Exception $ex)
+        {
+            echo $ex->getMessage();
+        }
+    }
 }
 ?>
