@@ -31,7 +31,7 @@ class asignacionLG
         }
     }
     
-    function asignacionIU($_asignacion)
+    function asignacionU($_asignacion)
     {
         try
         {
