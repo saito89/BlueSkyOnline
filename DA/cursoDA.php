@@ -14,6 +14,7 @@ class cursoDA
             $connection = new mySqlConnection();
             $db = $connection->openMySqlDB('190.7.192.3','espe','T3cn0l0gic0.2013','bluesky');
             $res = mysqli_query($db, "call cursoSInfo('$_idUsuario')");
+            $connection->closeMySqlDB();
             $listCurso = array();
             while($cu = mysqli_fetch_array($res))
             {

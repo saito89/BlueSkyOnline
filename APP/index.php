@@ -44,11 +44,11 @@
         }
         
         $as = new asignacionEN();
-        $as->setNombre("Proyecto 2");
-        $as->setDescripcion("Parser de un compilador");
-        $as->setFechaHoraAsignacion("2013-06-30 23:59:59.0");
-        $as->setMedioEntrega("email");
-        $as->setTipo("grupal");
+        $as->setNombre('Proyecto 2');
+        $as->setDescripcion('Parser de un compilador');
+        $as->setFechaHoraAsignacion('2013-06-30 23:59:59.0');
+        $as->setMedioEntrega('email');
+        $as->setTipo('grupal');
         $as->setPorcentaje(24);
         $as->setIdCurso(2);
         $aLG->asignacionI($as);
