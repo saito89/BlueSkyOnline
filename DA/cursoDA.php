@@ -24,6 +24,7 @@ class cursoDA
                 $cEN->setHorario($cu['horario']);
                 $cEN->setCreditos($cu['creditos']);
                 $cEN->setCalificacion($cu['calificacion']);
+                echo $cEN->getIdCurso();
                 array_push($listCurso, $cEN);
             }
             return $listCurso;
