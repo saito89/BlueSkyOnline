@@ -65,7 +65,7 @@
         $as->setPorcentaje(22);
         $as->setIdCurso(2);
         $aLG->asignacionU($as);
-        echo "Se actualizo la asignacion <br>
+        echo "Se actualizo la asignacion <br>";
         
         ?>
     </body>
