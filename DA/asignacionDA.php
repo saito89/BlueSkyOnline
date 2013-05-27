@@ -34,5 +34,18 @@ class asignacionDA
             echo $ex->getMessage();
         }
     }    
+    function asignacionI($_asignacion)
+    {
+        try
+        {
+            $connection = new mySqlConnection();
+            $db = $connection->openMySqlDB('190.7.192.3','espe','T3cn0l0gic0.2013','bluesky');
+            mysqli_query($db, "call asignacionI('$_asignacion->getNombre()','$_asignacion->getDescripcion()','$_asignacion->getFechaHoraAsignacion()','$_asignacion->getMedioEntrega()','$_asignacion->getTipo()','$_asignacion->getPorcentaje()','$_asignacion->getIdCurso()')");
+        }
+        catch(Exception $ex)
+        {
+            echo $ex->getMessage();
+        }
+    }    
 }
 ?>

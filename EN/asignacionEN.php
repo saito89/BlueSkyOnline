@@ -14,6 +14,7 @@ class asignacionEN
     private $tipo;
     private $porcentaje;
     private $calificacion;
+    private $idCurso;
     
     public function getIdAsignacion() {
         return $this->idAsignacion;
@@ -76,6 +77,13 @@ class asignacionEN
 
     public function setCalificacion($calificacion) {
         $this->calificacion = $calificacion;
+    }
+    public function getIdCurso() {
+        return $this->idCurso;
+    }
+
+    public function setIdCurso($idCurso) {
+        $this->idCurso = $idCurso;
     }
 }
 ?>
