@@ -17,7 +17,7 @@ class asignacionDA
             while($as = mysqli_fetch_array($res))
             {
                 $aEN = new asignacionEN();
-                $aEN->setIdAsignaciones($as['idAsignacion']);
+                $aEN->setIdAsignacion($as['idAsignacion']);
                 $aEN->setNombre($as['nombre']);
                 $aEN->setDescripcion($as['descripcion']);
                 $aEN->setFechaHoraAsignacion($as['fechaHoraAsignacion']);

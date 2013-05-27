@@ -6,7 +6,7 @@
  */
 class asignacionEN
 {
-    private $idAsignaciones;
+    private $idAsignacion;
     private $nombre;
     private $descripcion;
     private $fechaHoraAsignacion;
@@ -15,12 +15,12 @@ class asignacionEN
     private $porcentaje;
     private $calificacion;
     
-    public function getIdAsignaciones() {
-        return $this->idAsignaciones;
+    public function getIdAsignacion() {
+        return $this->idAsignacion;
     }
 
-    public function setIdAsignaciones($idAsignaciones) {
-        $this->idAsignaciones = $idAsignaciones;
+    public function setIdAsignacion($idAsignacion) {
+        $this->idAsignacion = $idAsignacion;
     }
 
     public function getNombre() {
