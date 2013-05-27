@@ -40,6 +40,14 @@ class asignacionDA
         {
             $connection = new mySqlConnection();
             $db = $connection->openMySqlDB('190.7.192.3','espe','T3cn0l0gic0.2013','bluesky');
+            echo $_asignacion->getIdAsignacion()." ";
+            echo $_asignacion->getNombre()." ";
+            echo $_asignacion->getDescripcion()." ";
+            echo $_asignacion->getFechaHoraAsignacion()." ";
+            echo $_asignacion->getMedioEntrega()." ";
+            echo $_asignacion->getTipo()." ";
+            echo $_asignacion->getPorcentaje()." ";
+            echo $_asignacion->getCalificacion()."<br>";
             mysqli_query($db, "call asignacionI('$_asignacion->getNombre()','$_asignacion->getDescripcion()','$_asignacion->getFechaHoraAsignacion()','$_asignacion->getMedioEntrega()','$_asignacion->getTipo()','$_asignacion->getPorcentaje()','$_asignacion->getIdCurso()')");
         }
         catch(Exception $ex)
