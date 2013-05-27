@@ -16,10 +16,10 @@
         
         $cLG = new cursoLG();
         $listCurso = $cLG->cursoSInfo(1);
-        for($i = 0; $i < count($listCurso); $i++)
+        /*for($i = 0; $i < count($listCurso); $i++)
         {
             echo $listCurso[$i]["idCurso"];
-        }
+        }*/
         
         ?>
     </body>
