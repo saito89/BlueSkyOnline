@@ -43,6 +43,7 @@
             echo $asignacion->getCalificacion()."<br>";
         }
         
+        /*Tested with inserted Asignacion 
         $as = new asignacionEN();
         $as->setNombre('Proyecto 3');
         $as->setDescripcion('Compilador');
@@ -52,7 +53,19 @@
         $as->setPorcentaje(25);
         $as->setIdCurso(2);
         $aLG->asignacionI($as);
-        echo "Se inserto la asignacion <br>";
+        echo "Se inserto la asignacion <br>";*/
+        
+        $as = new asignacionEN();
+        $as->setIdAsignacion(3);
+        $as->setNombre('Proyecto 3');
+        $as->setDescripcion('Compilador');
+        $as->setFechaHoraAsignacion('2013-07-30 23:59:59.0');
+        $as->setMedioEntrega('email');
+        $as->setTipo('grupal');
+        $as->setPorcentaje(22);
+        $as->setIdCurso(2);
+        $aLG->asignacionU($as);
+        echo "Se actualizo la asignacion <br>
         
         ?>
     </body>
