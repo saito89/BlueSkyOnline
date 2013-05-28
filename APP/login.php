@@ -73,6 +73,7 @@ if($_POST['Login'])
         $_SESSION['idUsuario'] = $uEN->getIdUsuario();
         $_SESSION['userName'] = $uEN->getUserName();
         $_SESSION['password'] = $uEN->getPassword();
+        $_SESSION['tipoUsuario'] = $uEN->getTipo();
         header("Location:prueba.php");
         //echo $uEN->getIdUsuario()."<br>".$uEN->getUserName()."<br>".$uEN->getPassword()."<br>".$uEN->getTipo()."<br>".$uEN->getNombre()."<br>".$uEN->getFechaNacimiento()."<br>".$uEN->getDescripcion()."<br>".$uEN->getCorreoElectronico()."<br>";
     }
