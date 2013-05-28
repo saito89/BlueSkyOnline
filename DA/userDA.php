@@ -69,5 +69,32 @@ class userDA
             echo $ex->getMessage();
         }
     }
+    
+    //Selects the info from a usuario using id
+    function usuarioS($_idUsuario)
+    {
+        try
+        {
+            $connection = new mySqlConnection();
+            $db = $connection->openMySqlDB('190.7.192.3','espe','T3cn0l0gic0.2013','bluesky');
+            $res = mysqli_query($db, "call usuarioS('$_idUsuario')");
+            $connection->closeMySqlDB();
+            $uEN = new usuarioEN();
+            while($resPro = mysqli_fetch_array($res))
+            {
+                $uEN->setIdUsuario($resPro['idUsuario']);
+                $uEN->setUserName($resPro['userName']);
+                $uEN->setPassword($resPro['password']);
+                $uEN->setTipo($resPro['TipoUsuario_idTipoUsuario']);
+                $uEN->setIdInfoPersona($resPro['InfoPersonal_idInfoPersonal']);
+            }
+            
+            return $uEN;
+        }
+        catch(Exception $ex)
+        {
+            echo $ex->getMessage();
+        }
+    }
 }
 ?>

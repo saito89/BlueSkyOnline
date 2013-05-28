@@ -31,5 +31,17 @@ class userLG
             echo $ex->getMessage();
         }
     }
+    function usuarioS($_idUsuario)
+    {
+        try
+        {
+            $uAD = new userDA();
+            return $uAD->usuarioS($_idUsuario);
+        }
+        catch(Exception $ex)
+        {
+            echo $ex->getMessage();
+        }
+    }
 }
 ?>
