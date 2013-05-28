@@ -8,7 +8,7 @@
     {
     if (highLight)
     {
-      tableRow.style.backgroundColor = '#dcfac9';
+      tableRow.style.backgroundColor = '#ADD8E6';
     }
     else
     {
@@ -20,19 +20,45 @@
   {
   document.location.href = theUrl;
   }
+  
+  function ClickRow(row)
+  {
+      
+  }
   </script>
 </head>
 <body>
-  <table width="100%" border="1" cellpadding="0" cellspacing="0">
+  <table width="auto" border="1" cellpadding="0" cellspacing="2" align ="center">
+      <tr>
+          <td>
+              ID
+          </td>
+          <td>
+              Curso
+          </td>
+          <td>
+              Siglas
+          </td>
+          <td>
+              Horario
+          </td>
+          <td>
+              Creditos
+          </td>
+          <td>
+              Calificacion
+          </td>
+      </tr>
 <?php
 include '../LG/userLG.php';
 include '../LG/cursoLG.php';
 include '../LG/asignacionLG.php';
+session_start();
 $cLG = new cursoLG();
-$listCurso = $cLG->cursoSInfo(1);
+$listCurso = $cLG->cursoSInfo($_SESSION['idUsuario']);
 foreach($listCurso as $curso)
 {
-    
+    session_start();
     echo '<tr onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);">';
     echo "<td>{$curso->getIdCurso()}</td>";
     echo "<td>{$curso->getNombre()}</td>";

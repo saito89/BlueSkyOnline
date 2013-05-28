@@ -87,6 +87,5 @@ class usuarioEN
         $this->idInfoPersona = $idInfoPersona;
     }
 
-
 }
 ?>

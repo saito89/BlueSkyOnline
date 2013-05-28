@@ -18,15 +18,18 @@ class userDA
             $res = mysqli_query($db, "call usuarioSLogin('$_userName','$_password')");
             $uEN = new usuarioEN();
             $connection->closeMySqlDB();
-            $resPro = mysqli_fetch_array($res);
-            $uEN->setIdUsuario($resPro['idUsuario']);
-            $uEN->setUserName($resPro['userName']);
-            $uEN->setPassword($resPro['password']);
-            $uEN->setTipo($resPro['TipoUsuario_idTipoUsuario']);
-            $uEN->setNombre($resPro['nombre']);
-            $uEN->setFechaNacimiento($resPro['fechaNacimiento']);
-            $uEN->setDescripcion($resPro['descripcion']);   
-            $uEN->setCorreoElectronico($resPro['correoElectronico']);  
+            while($resPro = mysqli_fetch_array($res))
+            {
+                $uEN->setIdUsuario($resPro['idUsuario']);
+                $uEN->setUserName($resPro['userName']);
+                $uEN->setPassword($resPro['password']);
+                $uEN->setTipo($resPro['TipoUsuario_idTipoUsuario']);
+                $uEN->setNombre($resPro['nombre']);
+                $uEN->setFechaNacimiento($resPro['fechaNacimiento']);
+                $uEN->setDescripcion($resPro['descripcion']);   
+                $uEN->setCorreoElectronico($resPro['correoElectronico']);  
+            }
+            
             return $uEN;
         }
         catch(Exception $ex)
