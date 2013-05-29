@@ -71,6 +71,7 @@ if($_POST['Login'])
     {
         session_start();
         $_SESSION['idUsuario'] = $uEN->getIdUsuario();
+        $_SESSION['tipoUsuario'] = $uEN->getTipo();
         header("Location:cursos.php");
         //echo $uEN->getIdUsuario()."<br>".$uEN->getUserName()."<br>".$uEN->getPassword()."<br>".$uEN->getTipo()."<br>".$uEN->getNombre()."<br>".$uEN->getFechaNacimiento()."<br>".$uEN->getDescripcion()."<br>".$uEN->getCorreoElectronico()."<br>";
     }

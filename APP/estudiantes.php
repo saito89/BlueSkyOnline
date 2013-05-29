@@ -93,6 +93,23 @@
 		
 		
 		<?php
+                include '../LG/userLG.php';
+                include '../LG/cursoLG.php';
+                include '../LG/asignacionLG.php';    
+                
+                $uLG = new userLG();
+                $listCurso = $uLG->infoPersonalSListaEstudiantes($_POST['btn_curso']);
+                foreach($listCurso as $curso)
+                {
+                    echo $curso->getIdCurso()." ";
+                    echo $curso->getNombre()." ";
+                    echo $curso->getSigla()." ";
+                    echo $curso->getHorario()." ";
+                    echo $curso->getCreditos()." ";
+                    echo $curso->getCalificacion()."<br>";
+            
+                }
+                
 		$profesorID = "";
 		$profesorNombre = "";
 		$cursoID = $_GET["id"];

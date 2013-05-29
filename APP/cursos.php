@@ -33,14 +33,9 @@
 
 	<div id='cssmenu'>
 	<ul>
-	   <li class='active'><a href='index.html'><span>Home</span></a></li>
+	   <li ><a href='index.html'><span>Home</span></a></li>
 	   <li><a href='perfil.html'><span>Perfil</span></a></li>
-	   <li class='has-sub'><a href='cursos.php'><span>Cursos</span></a>
-		  <ul>
-			 
-			 <li><a href='asignaciones.php'><span>Asignaciones</span></a></li>
-			 <li class='last'><a href='calificaciones.php'><span>Calificaciones</span></a></li>
-		  </ul>
+	   <li class='active' ><a href='cursos.php'><span>Cursos</span></a>
 	   </li>
 	   <li class='has-sub last'><a href='correspondencia.php'><span>Correspondencia</span></a>
 		  <ul>
@@ -54,71 +49,60 @@
 	<div id = "principalBlock">
 		
 		<?php
-                
-                include '../LG/userLG.php';
-                include '../LG/cursoLG.php';
-                include '../LG/asignacionLG.php';
-                session_start();
-                $cLG = new cursoLG();
-                $listCurso = $cLG->cursoSInfo($_SESSION['idUsuario']);
-                /*foreach($listCurso as $curso)
-                {
-                    session_start();
-                    echo '<tr onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);">';
-                    echo "<td>{$curso->getIdCurso()}</td>";
-                    echo "<td>{$curso->getNombre()}</td>";
-                    echo "<td>{$curso->getSigla()}</td>";
-                    echo "<td>{$curso->getHorario()}</td>";
-                    echo "<td>{$curso->getCreditos()}</td>";
-                    echo "<td>{$curso->getCalificacion()}</td>";
-                    echo '</tr>';       
-                }*/
+		include '../LG/userLG.php';
+        include '../LG/cursoLG.php';
+        include '../LG/asignacionLG.php';
+        session_start();
+        $cLG = new cursoLG();
+
 		$profesorID = "";
 		$profesorNombre = "";
 
 
 		$Titulo = "";
 		echo $Titulo;
+	
 
-
-		include "conexion.php";
+		
 
 
 		/*recogemos los datos de la base y vamos creando el script*/
 				print ("<div id = 'tablaCursos'>
 				
-				<form id = 'f' name = 'f' method = 'POST' >"
+				<form id = 'f' name = 'f' method = 'POST' action = 'asignaciones.php?idCurso'>"
 				
 				);
 				
-				
-				print ("<table border=\"1\">\n<tr>\n<td colspan = \"5\"> <h2> Cursos </h2></td></tr>\n");
+				if ($_SESSION['tipoUsuario']=="1"){
+					
+					print ("<table border=\"1\">\n<tr>\n<td colspan = \"5\"> <h2> Cursos </h2></td></tr>\n");
 							
 						//$consulta = mysql_query("SELECT * from Curso JOIN CursoPorProfesor WHERE IDprofesor='".$profesorID."'",$conexion);
-                                                $consulta = $cLG->cursoSInfo($_SESSION['idUsuario']);
+						$consulta = $cLG->cursoSInfo($_SESSION['idUsuario']);
 						print ("<td>Nombre</td><td>Sigla</td><td>Estudiantes</td><td>Creditos</td><td>Horario</td><td>Sigla</td><td>Acciones</td>\n");
-						//while($fila=mysql_fetch_array($consulta)) {
 						foreach($consulta as $curso){
+						
 							//$idCurso= $fila['idCurso'] ; 
-                                                        $idCurso = $curso->getIdCurso();
+                            $idCurso = $curso->getIdCurso();
 							//$nombreCurso = $fila['nombre'];
-                                                        $nombreCurso = $curso->getNombre();				
+                            $nombreCurso = $curso->getNombre();				
 							//$creditosCurso = $fila['creditos'];
-                                                        $creditosCurso = $curso->getCreditos();
+                            $creditosCurso = $curso->getCreditos();
 							//$horarioCurso = $fila['horario'];
-                                                        $horarioCurso = $curso->getCreditos();
+                            $horarioCurso = $curso->getCreditos();
 							//$siglaCurso = $fila['sigla'];
-                                                        $siglaCurso = $curso->getSigla();
+                            $siglaCurso = $curso->getSigla();
 							
 							
 							print ("<tr>
 								
 								<td>$nombreCurso</td>
 								<td>$siglaCurso </td>
+								
 								<td> <a href = 'estudiantes.php?id=$idCurso'> Estudiantes </a> </td>
 								<td> $creditosCurso</td>
 								<td> $horarioCurso  </td>
-								<td> <input type= 'button' value='Go' name='btn_curso' value = '$idCurso' onClick = 'asignaciones.php'/> </td>
+								<a href='asignaciones.php?idCurso=$idCurso'><img src='Icons/go_button.png'></a>	
 								
 								</tr>\n");	
 				}
@@ -126,10 +110,49 @@
 					print ("</table>");
 					print ("<br/><br/><a href = \"index.html\"> Go back </a>");
 					print ("</form></div>");/*id = "tablaCursos"*/
+					
+					}else {
+						print ("<table border=\"1\">\n<tr>\n<td colspan = \"4\"> <h2> Cursos </h2></td></tr>\n");
+							
+						//$consulta = mysql_query("SELECT * from Curso JOIN CursoPorProfesor WHERE IDprofesor='".$profesorID."'",$conexion);
+						$consulta = $cLG->cursoSInfo($_SESSION['idUsuario']);
+						print ("<td>Nombre</td><td>Sigla</td><td>Creditos</td><td>Horario</td><td>Sigla</td><td>Acciones</td>\n");
+						foreach($consulta as $curso){
+						
+							//$idCurso= $fila['idCurso'] ; 
+                            $idCurso = $curso->getIdCurso();
+							//$nombreCurso = $fila['nombre'];
+                            $nombreCurso = $curso->getNombre();				
+							//$creditosCurso = $fila['creditos'];
+                            $creditosCurso = $curso->getCreditos();
+							//$horarioCurso = $fila['horario'];
+                            $horarioCurso = $curso->getCreditos();
+							//$siglaCurso = $fila['sigla'];
+                            $siglaCurso = $curso->getSigla();
+							
+							
+							print ("<tr>
+								
+								<td>$nombreCurso</td>
+								<td>$siglaCurso </td>
+								<td> $creditosCurso</td>
+								<td> $horarioCurso  </td>
+								<a href='asignaciones.php?idCurso=$idCurso'><img src='Icons/go_button.png'></a>	
+								
+								</tr>\n");	
+				}
+						
+					print ("</table>");
+					print ("<br/><br/><a href = \"index.html\"> Go back </a>");
+					print ("</form></div>");/*id = "tablaCursos"*/
+						
+						
+						}
+				
 
 
 
-		//mysql_close($conexion);
+		
 		?>
 		
 		

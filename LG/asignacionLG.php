@@ -56,5 +56,18 @@ class asignacionLG
             echo $ex->getMessage();
         }
     }
+    
+    function asignacionSUsuario($_idUsuario)
+    {
+        try
+        {
+            $aAD = new asignacionDA();
+            return $aAD->asignacionSUsuario($_idUsuario);
+        }
+        catch(Exception $ex)
+        {
+            echo $ex->getMessage();
+        }
+    }
 }
 ?>

@@ -30,7 +30,8 @@
         }
         
         $aLG = new asignacionLG();
-        $listAsignacion = $aLG->asignacionSInfo(1, 1);
+        //$listAsignacion = $aLG->asignacionSInfo(1, 1);
+        $listAsignacion = $aLG->asignacionSUsuario(1);
         foreach($listAsignacion as $asignacion)
         {
             echo $asignacion->getIdAsignacion()." ";

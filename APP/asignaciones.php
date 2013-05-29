@@ -13,6 +13,11 @@
 			document.getElementById("agregarAsignacion").className = "NoVisible"
 		}	
 		
+		function cerrarAsignacion (){
+			document.getElementById("modificarAsignacion").className = "NoVisible"	
+		}
+			
+			
 		function agregarAsignacion (){
 			if (document.getElementById("nombreAsignacion").value == "" || document.getElementById("fechaAsignacion") == ""||document.getElementById("elm1").value == "" ){
 				/*
@@ -31,14 +36,19 @@
 			
 			}
 			
-		function mostrarAsignacion (id){
+		function mostrarAsignacion (id, tipoUsuario){
 			/*retorna la asignacion  y se le debe asignar a estos espacios q estan en blanco*/
 			document.getElementById("nombreAsignacion2").value = ""
 			document.getElementById("fechaAsignacion2").value = ""
 			document.getElementById("elm1").value = ""
 			
 			document.getElementById("modificarAsignacion").className = "Visible"
-			
+			if (tipoUsuario == "1") {
+				document.getElementById("profesorDivModificar").className = "Visible"
+				}else {
+					document.getElementById("estudianteDivConsultar").className = "Visible"
+					
+					}
 		}	
 		
 		function modificarAsignacion (){
@@ -55,6 +65,10 @@
 				}
 			
 		}
+		
+		function eliminarAsignacion(id, cursoID){}
+		
+		
 			
 	tinyMCE.init({
 		// General options
@@ -124,34 +138,39 @@
 
 	<div id='cssmenu'>
 	<ul>
-	   <li class='active'><a href='index.html'><span>Home</span></a></li>
+	   <li ><a href='index.html'><span>Home</span></a></li>
 	   <li><a href='perfil.html'><span>Perfil</span></a></li>
-	   <li class='has-sub'><a href='cursos.php'><span>Cursos</span></a>
+	   <li class='active has-sub'><a href='cursos.php'><span>Curso</span></a>
 		  <ul>
 			 
 			 <li><a href='asignaciones.php'><span>Asignaciones</span></a></li>
 			 <li class='last'><a href='calificaciones.php'><span>Calificaciones</span></a></li>
 		  </ul>
 	   </li>
-	   <li class='has-sub last'><a href='correspondencia.php'><span>Correspondencia</span></a>
-		  <ul>
-			 <li><a href='consultas.php'><span>Consultas</span></a></li>
-			 <li class='last'><a href='reclamos.php'><span>Reclamos</span></a></li>
-		  </ul>
+	   <li class='last'><a href='correspondencia.php'><span>Correspondencia</span></a>
+		  
 	   </li>
 	</ul>
 	</div>
 
 	<div id = "principalBlock">
 		<?php
+      	include '../LG/userLG.php';
+        include '../LG/cursoLG.php';
+        include '../LG/asignacionLG.php';
+        session_start();	
+
 		$profesorID = "";
 		$profesorNombre = "";
 		$cursoID = $_POST["btn_curso"];
-
+		$tipoUsuario = $_SESSION['tipoUsuario'];
+                $aLG = new asignacionLG();
+		/*
+		*  agregar tipoUsuario
+		* */
 	
 
 
-		include "conexion.php";
 
 
 		/*recogemos los datos de la base y vamos creando el script*/
@@ -161,19 +180,27 @@
 				
 				);
 				
-				
+				echo 'idUsuario: '.$_SESSION['idUsuario'].'<br>';
+                                echo 'idCurso: '.$_POST['btn_curso'].'<br>';
 				print ("<table border=\"1\">\n<tr>\n<td colspan = \"5\"> <h2> Asignaciones </h2></td></tr>\n");
 							
-						$consulta = mysql_query("SELECT * from Curso JOIN CursoPorProfesor WHERE IDprofesor='".$profesorID."'",$conexion);
+						//$consulta = mysql_query("SELECT * from Curso JOIN CursoPorProfesor WHERE IDprofesor='".$profesorID."'",$conexion);
+						$consulta = $aLG->asignacionSInfo($_SESSION['idUsuario'],$_POST['btn_curso']);
 						print ("<td>Nombre</td><td>Fecha</td><td>Medio</td><td>Tipo</td><td>porcentaje</td><td>Acciones</td>\n");
-						while($fila=mysql_fetch_array($consulta)) {
+						foreach($consulta as $asignacion){
 							
-							$idAsignacion= $fila['idAsignacion'] ; 
-							$nombre = $fila['nombre'];
-							$fecha1 = $fila['fechaHoraAsignacion'];							
-							$medio = $fila['medioEntrega'];
-							$tipo = $fila['tipo'];
-							$porcentaje = $fila['porcentaje'];
+							//$idAsignacion= $fila['idAsignacion'] ; 
+                            $idAsignacion = $asignacion->getIdAsignacion();
+							//$nombre = $fila['nombre'];
+                            $nombre = $asignacion->getNombre();
+							//$fecha1 = $fila['fechaHoraAsignacion'];
+                            $fecha1 = $asignacion->getFechaHoraAsignacion();						
+							//$medio = $fila['medioEntrega'];
+                            $medio = $asignacion->getMedioEntrega();
+							//$tipo = $fila['tipo'];
+                            $tipo = $asignacion->getTipo();
+							//$porcentaje = $fila['porcentaje'];
+                            $porcentaje = $asignacion->getPorcentaje();
 							print ("<tr>
 								
 								<td>$nombre</td>
@@ -181,10 +208,14 @@
 								<td>$medio </td>
 								<td>$tipo </td>
 								<td>$porcentaje </td>
-								
-								<td> <input type= 'button' value='Mostrar' name='btn_MostrarAsignacion' onClick = 'mostrarAsignacion($idasignacion)'/> </td>
-								
-								</tr>\n");	
+								");
+							if ($tipoUsuario == "1"){
+									print ("<td> <input type= 'button' value='Mostrar' name='btn_MostrarAsignacion' onClick = 'mostrarAsignacion($idAsignacion, $tipoUsuario)'/> ");
+									print ("<input type= 'button' value='Eliminar' name='btn_eliminarAsignacion' onClick = 'eliminarAsignacion($idAsignacion)'/> </td></tr>\n");
+								}else {
+									print ("<td> <input type= 'button' value='Mostrar' name='btn_MostrarAsignacion' onClick = 'mostrarAsignacion($idAsignacion, $tipoUsuario)'/> </td></tr>\n");
+									
+								}
 				}
 						
 					print ("</table>");
@@ -242,8 +273,12 @@
 								</textarea>
 							</div>
 							
-							<div id = 'botonSubmit2'>
-								<input type = 'submit' name = 'btn_modificar' OnClick = 'modificarAsignacion()'/>
+							<div id = 'profesorDivModificar' class = 'NoVisible'>
+								<input type = 'submit' value = 'Modificar' name = 'btn_modificar' OnClick = 'modificarAsignacion()'/>
+							</div>
+							
+							<div id = 'estudianteDivConsultar' class = 'NoVisible'>
+								<input type = 'submit' value = 'Cerrar' name = 'btn_modificar' OnClick = 'cerrarAsignacion()'/>
 							</div>
 							
 							

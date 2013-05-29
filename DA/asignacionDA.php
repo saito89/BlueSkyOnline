@@ -36,6 +36,37 @@ class asignacionDA
             echo $ex->getMessage();
         }
     }    
+    
+    
+    function asignacionSUsuario($_idUsuario)
+    {
+        try
+        {
+            $connection = new mySqlConnection();
+            $db = $connection->openMySqlDB('190.7.192.3','espe','T3cn0l0gic0.2013','bluesky');
+            $res = mysqli_query($db, "call asignacionSUsuario('$_idUsuario')");
+            $connection->closeMySqlDB();
+            $listAsignacion = array();
+            while($as = mysqli_fetch_array($res))
+            {
+                $aEN = new asignacionEN();
+                $aEN->setIdAsignacion($as['idAsignacion']);
+                $aEN->setNombre($as['nombre']);
+                $aEN->setDescripcion($as['descripcion']);
+                $aEN->setFechaHoraAsignacion($as['fechaHoraAsignacion']);
+                $aEN->setMedioEntrega($as['medioEntrega']);
+                $aEN->setTipo($as['tipo']);
+                $aEN->setPorcentaje($as['porcentaje']);
+                $aEN->setCalificacion($as['calificacion']);
+                array_push($listAsignacion, $aEN);
+            }
+            return $listAsignacion;
+        }
+        catch(Exception $ex)
+        {
+            echo $ex->getMessage();
+        }
+    }    
     //Inserts a new asignacion into the DB
     function asignacionI($_asignacion)
     {
