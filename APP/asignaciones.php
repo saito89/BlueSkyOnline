@@ -308,7 +308,7 @@
 						
 					print ("</table>");
 					print ("<br/><br/><a href = \"index.html\"> Go back </a>");
-					print ("<br/><button type= 'button' value='Agregar Asignacion' name='btn_agregarAsignacion' onclick = 'enableAgregarAsignacion()'/>");
+					print ("<br/><input type= 'button' value='Agregar Asignacion' name='btn_agregarAsignacion' onclick = 'enableAgregarAsignacion()'/>");
 					print ("</form></div>");/*id = "tablaCursos"*/
 
 
