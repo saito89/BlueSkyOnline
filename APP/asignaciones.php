@@ -20,17 +20,23 @@
 			
 		function agregarAsignacion (){
 			if (document.getElementById("nombreAsignacion").value == "" || document.getElementById("fechaAsignacion") == ""||document.getElementById("elm1").value == "" ){
-				/*
-				POP UP error (complete la informacion)		
-				*/
+				/*POP UP error (complete la informacion)*/
+				alert("Complete correctamente la informacion");
 				}
-				
 				else {
-					/*
-					POP UP <insercion completada>
-					refresh
-					*/
+					/*POP UP <insercion completada>*/
+					var r=confirm("Confirme la creacion de asignacion");
+					if (r==true)
+					  {
+					  /* 
+					  AGREGAR A BD
+					  */
+					  alert("Asignacion asignada");
+					  }
+							
+					/*refresh*/
 					disableAgregarAsignacion();
+					setTimeOut ("location.reload (true);" , 0 );
 					
 					}
 			
@@ -38,37 +44,74 @@
 			
 		function mostrarAsignacion (id, tipoUsuario){
 			/*retorna la asignacion  y se le debe asignar a estos espacios q estan en blanco*/
-			document.getElementById("nombreAsignacion2").value = ""
-			document.getElementById("fechaAsignacion2").value = ""
-			document.getElementById("elm1").value = ""
+			document.getElementById("nombreAsignacion2").value = "";
+			document.getElementById("fechaAsignacion2").value = "";
+			document.getElementById("elm1").value = "";
 			
-			document.getElementById("modificarAsignacion").className = "Visible"
+			document.getElementById("modificarAsignacion").className = "Visible";
 			if (tipoUsuario == "1") {
-				document.getElementById("profesorDivModificar").className = "Visible"
-				}else {
-					document.getElementById("estudianteDivConsultar").className = "Visible"
+				document.getElementById("profesorDivModificar").className = "Visible";
+				}
+				
+				
 					
-					}
+					
 		}	
 		
 		function modificarAsignacion (){
 			if (document.getElementById("nombreAsignacion2").value == "" || document.getElementById("fechaAsignacion2") == ""||document.getElementById("elm2").value == "" ){
-				/*
-				POP UP error (complete la informacion)		
-				*/
+				/*POP UP error (complete la informacion)*/
+				alert("Complete correctamente la informacion");
 			}else {
-				/*
-				POP UP <insercion completada>
-				refresh
-				*/
-				document.getElementById("modificarAsignacion").className = "NoVisible"
+				/*POP UP <insercion completada>*/
+				var r=confirm("Confirme la modificacion de asignacion");
+					if (r==true)
+					  {
+					  /*
+					  AGREGAR A BD
+					  
+					  */
+					  alert("Asignacion asignada");
+					  }
+				document.getElementById("modificarAsignacion").className = "NoVisible";
+				setTimeOut ("location.reload (true);" , 0 );
 				}
-			
+			}
+		
+		function eliminarAsignacion(id, cursoID){
+			var r=confirm("Confirme la eliminacion de asignacion");
+					if (r==true)
+					  {
+					  /*
+					  BORRAR DE BD
+					  
+					  */
+					  alert("Asignacion borrada");
+					  }
+				setTimeOut ("location.reload (true);" , 0 );
 		}
 		
-		function eliminarAsignacion(id, cursoID){}
+		function mostrarPanelParaMensaje (nombre, fecha, calificacion){
+			document.getElementById ("nombreAsignacionMensaje").value = nombre;
+			document.getElementById ("fechaAsignacionMensaje").value = fecha;
+			
+			document.getElementById ("PanelParaMensaje").className = "Visible";
+		}
+		
+		function ocultarPanelParaMensaje (){
+			document.getElementById ("PanelParaMensaje").className = "NoVisible";	
+		}
 		
 		
+		function enviarMensaje(){
+			var e = document.getElementById ("opcionesDeMensaje");
+			var tipoMensaje = e.options[e.selectedIndex].text;
+			var nombre = document.getElementById ("nombreAsignacionMensaje").value;
+			var fecha = document.getElementById ("fechaAsignacionMensaje").value;
+			var mensaje = document.getElementById ("areaMensaje").value;
+			
+			
+			}
 			
 	tinyMCE.init({
 		// General options
@@ -115,22 +158,24 @@
 	<div id = "barraHorizontal1">
 		
 		<div id = "logo"> 
-			<img id = "imgLogo"src = "Screenshots/logo.png" >
+			<img id = "imgLogo"src = "Icons/logo.jpg" width = 300px height = 138px />
 		</div>
 		
 		<div id = "autentificacion">
-			<img src = "Icons/logIn.png" id = "loginLogo">  <!--login -->
-			<input type="text"  name = "logIn_nombre" id = "logIn_nombre" placeholder="username" style="text-align: center"/>
-			<input type="password"  name = "password" id = "password" placeholder="password" style="text-align: center" />
+			<script type="text/javascript">
+				function logOut(){
+					window.location.href = "index.html";
+					}
+			</script>
+			
 			
 			
 			<div id = "notAccounRegister">
-				
-				<a href = "lostPass" id = "lostPassLink">Lost Password?</a>
-				
+					<a href = "lostPass" id = "lostPassLink" onclick = "logOut()">Log Out</a>
 			</div>
-	</div>
-	
+			
+		</div>
+		
 	</div>
 	
 	
@@ -140,12 +185,8 @@
 	<ul>
 	   <li ><a href='index.html'><span>Home</span></a></li>
 	   <li><a href='perfil.html'><span>Perfil</span></a></li>
-	   <li class='active has-sub'><a href='cursos.php'><span>Curso</span></a>
-		  <ul>
-			 
-			 <li><a href='asignaciones.php'><span>Asignaciones</span></a></li>
-			 <li class='last'><a href='calificaciones.php'><span>Calificaciones</span></a></li>
-		  </ul>
+	   <li class='active'><a href='cursos.php'><span>Curso</span></a>
+		  
 	   </li>
 	   <li class='last'><a href='correspondencia.php'><span>Correspondencia</span></a>
 		  
@@ -155,21 +196,18 @@
 
 	<div id = "principalBlock">
 		<?php
-      	include '../LG/userLG.php';
-        include '../LG/cursoLG.php';
-        include '../LG/asignacionLG.php';
-        session_start();	
-
 		$profesorID = "";
 		$profesorNombre = "";
-		$cursoID = $_POST["btn_curso"];
-		$tipoUsuario = $_SESSION['tipoUsuario'];
-                $aLG = new asignacionLG();
+		$cursoID = $_GET["idCurso"];
 		/*
 		*  agregar tipoUsuario
 		* */
-	
-
+	     include '../LG/userLG.php';
+            include '../LG/cursoLG.php';
+            include '../LG/asignacionLG.php';
+            session_start();
+            $tipoUsuario = $_SESSION['tipoUsuario'];
+            $aLG = new asignacionLG();
 
 
 
@@ -179,16 +217,25 @@
 				<form id = 'f' name = 'f' method = 'POST' >"
 				
 				);
-				
-				echo 'idUsuario: '.$_SESSION['idUsuario'].'<br>';
-                                echo 'idCurso: '.$_POST['btn_curso'].'<br>';
-				print ("<table border=\"1\">\n<tr>\n<td colspan = \"5\"> <h2> Asignaciones </h2></td></tr>\n");
+				$colnum = 0;
+				if ($tipoUsuario == "2"){
+					$colnum = 7;
+					
+					}else{
+						$colnum =  6;
+						}
+					
+					
+					
+				print ("<table border=\"1\">\n<tr>\n<td colspan = \"$colnum\"> <h2> Asignaciones </h2></td></tr>\n");
 							
 						//$consulta = mysql_query("SELECT * from Curso JOIN CursoPorProfesor WHERE IDprofesor='".$profesorID."'",$conexion);
-						$consulta = $aLG->asignacionSInfo($_SESSION['idUsuario'],$_POST['btn_curso']);
+						$consulta = $aLG->asignacionSInfo($_SESSION['idUsuario'],$cursoID);
 						print ("<td>Nombre</td><td>Fecha</td><td>Medio</td><td>Tipo</td><td>porcentaje</td><td>Acciones</td>\n");
 						foreach($consulta as $asignacion){
 							
+							
+
 							//$idAsignacion= $fila['idAsignacion'] ; 
                             $idAsignacion = $asignacion->getIdAsignacion();
 							//$nombre = $fila['nombre'];
@@ -201,6 +248,10 @@
                             $tipo = $asignacion->getTipo();
 							//$porcentaje = $fila['porcentaje'];
                             $porcentaje = $asignacion->getPorcentaje();
+
+
+                            $calificacion = $asignacion->getCalificacion();
+
 							print ("<tr>
 								
 								<td>$nombre</td>
@@ -209,18 +260,31 @@
 								<td>$tipo </td>
 								<td>$porcentaje </td>
 								");
+								
+							if ($tipoUsuario == "2"){	
+								print ("<td>$calificacion </td>
+								");
+							}
+							
+							
+							print ("<td> <img src='Icons/view.png' onclick = 'mostrarAsignacion($idAsignacion, $tipoUsuario)' />");
+									
 							if ($tipoUsuario == "1"){
-									print ("<td> <input type= 'button' value='Mostrar' name='btn_MostrarAsignacion' onClick = 'mostrarAsignacion($idAsignacion, $tipoUsuario)'/> ");
-									print ("<input type= 'button' value='Eliminar' name='btn_eliminarAsignacion' onClick = 'eliminarAsignacion($idAsignacion)'/> </td></tr>\n");
+									print ("
+										<img src='Icons/delete.png' onclick = 'eliminarAsignacion($idAsignacion)'/> </td></tr>\n");
 								}else {
-									print ("<td> <input type= 'button' value='Mostrar' name='btn_MostrarAsignacion' onClick = 'mostrarAsignacion($idAsignacion, $tipoUsuario)'/> </td></tr>\n");
+									
+									
+									print ("<img src='Icons/email.png' onclick = 'mostrarPanelParaMensaje($nombre, $fecha1, $calificacion)'/> </td></tr>\n");
+						
+									
 									
 								}
 				}
 						
 					print ("</table>");
 					print ("<br/><br/><a href = \"index.html\"> Go back </a>");
-					print ("<br/><input type= 'button' value='Agregar Asignacion' name='btn_agregarAsignacion' onClick = 'enableAgregarAsignacion()'/>");
+					print ("<br/><button type= 'button' value='Agregar Asignacion' name='btn_agregarAsignacion' onclick = 'enableAgregarAsignacion()'/>");
 					print ("</form></div>");/*id = "tablaCursos"*/
 
 
@@ -242,7 +306,7 @@
 							</div>
 							
 							<div id = 'botonSubmit'>
-								<input type = 'submit' name = 'btn_submitAsignacion' OnClick = 'AgregarAsignacion()'/>
+								<button type = 'button' value = 'Agregar Asignacion' name = 'btn_submitAsignacion' onclick = 'AgregarAsignacion()'/>
 							</div>
 							
 							
@@ -262,7 +326,7 @@
 				
 				
 							<fieldset>
-								<legend> Nueva asignacion </legend>
+								<legend>Asignacion </legend>
 									Nombre de la asignacion: <input type = 'text' id = 'nombreAsignacion2' name='na2'/> <br/>
 									Fecha de asignacion: <input type = 'text' id = 'fechaAsignacion2' name='fa2'/> <br/>
 									<br/>
@@ -274,11 +338,53 @@
 							</div>
 							
 							<div id = 'profesorDivModificar' class = 'NoVisible'>
-								<input type = 'submit' value = 'Modificar' name = 'btn_modificar' OnClick = 'modificarAsignacion()'/>
+								<button type = 'button' value = 'Modificar' name = 'btn_modificar' onclick = 'modificarAsignacion()'/>
 							</div>
 							
-							<div id = 'estudianteDivConsultar' class = 'NoVisible'>
-								<input type = 'submit' value = 'Cerrar' name = 'btn_modificar' OnClick = 'cerrarAsignacion()'/>
+							<div id = 'cerrarConsulta' >
+								<button type = 'button' value = 'Cerrar' name = 'btn_modificar' onclick = 'cerrarAsignacion()'/>
+							</div>
+							
+							
+							</fieldset>
+							
+							
+							</form>
+							</div>
+						");	
+						
+						
+				print ( "	<div id = 'PanelParaMensaje' class = 'NoVisible' >
+							<form id = 'f3' name = 'f3' method = 'POST' >
+				
+				
+							<fieldset>
+								<legend> Nuevo mensaje </legend>
+									Nombre de la asignacion: <input type = 'text' disabled id = 'nombreAsignacionMensaje' name='na2'/> <br/>
+									Fecha de asignacion: <input type = 'text' disabled id = 'fechaAsignacionMensaje' name='fa2'/> <br/>
+									
+									
+									
+									Tipo de mensaje: <select id = 'opcionesDeMensaje'>
+														<option value='reclamo'>Reclamo</option>
+														<option value='consulta' selected>Consulta</option>
+														
+													 </select>
+									
+									<br/>
+							
+							
+							<div id = 'areaDeMensaje'>
+								<textarea id='areaMensaje' name='areaMensaje' rows='10' cols='80' style='width: 50%' >
+								</textarea>
+							</div>
+							
+							<div id = 'bloqueEnviarMensaje' >
+								<button type = 'submit' value = 'Enviar' name = 'btn_enviarMensaje' onclick = 'enviarMensaje()'/>
+							</div>
+							
+							<div id = 'cancelar' >
+								<button type = 'submit' value = 'Cerrar' name = 'btn_cancelarMensaje' onclick = 'ocultarPanelParaMensaje()'/>
 							</div>
 							
 							
@@ -290,9 +396,6 @@
 						");		
 				
 			
-
-
-		mysql_close($conexion);
 		?>
 		
 		

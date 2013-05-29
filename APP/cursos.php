@@ -89,7 +89,7 @@
 							//$creditosCurso = $fila['creditos'];
                             $creditosCurso = $curso->getCreditos();
 							//$horarioCurso = $fila['horario'];
-                            $horarioCurso = $curso->getCreditos();
+                            $horarioCurso = $curso->getHorario();
 							//$siglaCurso = $fila['sigla'];
                             $siglaCurso = $curso->getSigla();
 							
@@ -102,8 +102,9 @@
 								<td> <a href = 'estudiantes.php?id=$idCurso'> Estudiantes </a> </td>
 								<td> $creditosCurso</td>
 								<td> $horarioCurso  </td>
-								<a href='asignaciones.php?idCurso=$idCurso'><img src='Icons/go_button.png'></a>	
-								
+                                                                    <td>
+								<a href='asignaciones.php?idCurso=$idCurso'><img src='Icons/go-button.png'></a>	
+								</td>
 								</tr>\n");	
 				}
 						
@@ -126,7 +127,7 @@
 							//$creditosCurso = $fila['creditos'];
                             $creditosCurso = $curso->getCreditos();
 							//$horarioCurso = $fila['horario'];
-                            $horarioCurso = $curso->getCreditos();
+                            $horarioCurso = $curso->getHorario();
 							//$siglaCurso = $fila['sigla'];
                             $siglaCurso = $curso->getSigla();
 							
@@ -137,8 +138,9 @@
 								<td>$siglaCurso </td>
 								<td> $creditosCurso</td>
 								<td> $horarioCurso  </td>
-								<a href='asignaciones.php?idCurso=$idCurso'><img src='Icons/go_button.png'></a>	
-								
+                                                                    <td>
+								<a href='asignaciones.php?idCurso=$idCurso'><img src='Icons/go-button.png'></a>	
+								</td>
 								</tr>\n");	
 				}
 						
