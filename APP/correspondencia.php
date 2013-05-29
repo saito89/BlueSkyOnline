@@ -167,9 +167,9 @@ tinyMCE.init({
 		
 		<?php
 		
-			print ("<div id = 'tablaCorrespondencia'>
+			print ("<div id = \"tablaCorrespondencia\">
 				
-				<form id = 'f' name = 'f' method = 'POST' >"
+				<form id = \"f\" name = \"f\" method = \"POST\" >"
 				
 				);
 				
@@ -199,40 +199,38 @@ tinyMCE.init({
 								<td>$porcentaje </td>
 								");
 							
-									print ("<td><img src='Icons/view.png' onClick = 'consultarMensaje($idmensaje)'/> ");
-									print ("<img src='Icons/delete.png' onClick = 'eliminarMensaje($idmensaje)'/> </td></tr>\n");
+									print ("<td><img src=\"Icons/view.png\" onClick = \"consultarMensaje($idmensaje)\"/> ");
+									print ("<img src=\"Icons/delete.png\" onClick = \"eliminarMensaje($idmensaje)\"/> </td></tr>\n");
 															
 				}
 						
 					print ("</table>");
 					print ("<br/><br/><a href = \"index.html\"> Go back </a>");
-					print ("<br/><input type= 'button' value='Agregar Mensaje' name='btn_agregarMensaje' onclick = 'enableAgregarMensaje()'/>");
+					print ("<br/><input type= \"button\" value=\"Agregar Mensaje\" name=\"btn_agregarMensaje\" onclick = \"enableAgregarMensaje()\"/>");
 					print ("</form></div>");/*id = "tablaCorrespondencia"*/
 
-		
-		
-		print ("	<div id = 'verMensaje' class = 'NoVisible' >
-							<form id = 'f3' name = 'f3' method = 'POST' >
+		print ("	<div id = \"verMensaje\" class = \"NoVisible\" >
+							<form id = \"f3\" name = \"f3\" method = \"POST\" >
 				
 				
 							<fieldset>
 								<legend> Mensaje </legend>
-									Nombre: <input type = 'text' id = 'nombreMensaje2' name='nm'/> <br/>
-									Proveniente de: <input type = 'text' id = 'proveniente' name='dest'/> <br/>
+									Nombre: <input type = \"text\" id = \"nombreMensaje2\" name=\"nm\"/> <br/>
+									Proveniente de: <input type = \"text\" id = \"proveniente\" name=\"dest\"/> <br/>
 									<br/>
 							
 							
-							<div id = 'TA'>
-								<textarea id='elm12' name='elm12' rows='10' cols='80' style='width: 50%' >
+							<div id = \"TA\">
+								<textarea id=\"elm12\" name=\"elm12\" rows=\"10\" cols=\"80\" style=\"width: 50%\" >
 								</textarea>
 							</div>
 							
-							<div id = 'botonSubmit2'>
-								<button type = 'button' value = 'Close' name = 'btn_closeMensaje' onclick = 'closeMensaje()'/>
+							<div id = \"botonSubmit2\">
+								<button type = \"button\" value = \"Close\" name = \"btn_closeMensaje\" onclick = \"closeMensaje()\"/>
 							</div>
 							
-							<div id = 'botonSubmit22'>
-								<button type = 'button' value ='Reply' name = 'btn_replyMensaje' onclick = 'replyMensaje()'/>
+							<div id = \"botonSubmit22\">
+								<button type = \"button\" value =\"Reply\" name = \"btn_replyMensaje\" onclick = \"replyMensaje()\"/>
 							</div>
 							</fieldset>
 							
@@ -242,28 +240,28 @@ tinyMCE.init({
 						");
 		
 		
-		print ( "	<div id = 'crearMensaje' class = 'NoVisible' >
-							<form id = 'f2' name = 'f2' method = 'POST' >
+				print ( "	<div id = \"crearMensaje\" class = \"NoVisible\" >
+							<form id = \"f2\" name = \"f2\" method = \"POST\" >
 				
 				
 							<fieldset>
 								<legend> Nuevo Mensaje </legend>
-									Nombre: <input type = 'text' id = 'nombreMensaje' name='nm'/> <br/>
-									Enviar a: <input type = 'text' id = 'destinatario' disabled name='dest'/> <br/>
+									Nombre: <input type = \"text\" id = \"nombreMensaje\" name=\"nm\"/> <br/>
+									Enviar a: <input type = \"text\" id = \"destinatario\" disabled name=\"dest\"/> <br/>
 									<br/>
 							
 							
-							<div id = 'TA'>
-								<textarea id='elm1' name='elm1' rows='10' cols='80' style='width: 50%' >
+							<div id = \"TA\">
+								<textarea id=\"elm1\" name=\"elm1\" rows=\"10\" cols=\"80\" style=\"width: 50%\" >
 								</textarea>
 							</div>
 							
-							<div id = 'botonSubmit'>
-								<button type = 'button' value = 'Enviar' name = 'btn_submitMensaje' onclick = 'enviarMensaje()'/>
+							<div id = \"botonSubmit\">
+								<button type = \"button\" value = \"Enviar\" name = \"btn_submitMensaje\" onclick = \"enviarMensaje()\"/>
 							</div>
 							
-							<div id = 'cancelCrearMensaje'>
-								<button type = 'button' value = 'Cancelar' name = 'btn_submitMensaje' onclick = 'cancelEnviarMensaje()'/>
+							<div id = \"cancelCrearMensaje\">
+								<button type = \"button\" value = \"Cancelar\" name = \"btn_submitMensaje\" onclick = \"cancelEnviarMensaje()\"/>
 							</div>
 							
 							
@@ -273,6 +271,8 @@ tinyMCE.init({
 							</form>
 							</div>
 						");
+		
+		
 						
 		?>
 	</div>
