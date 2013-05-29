@@ -67,9 +67,9 @@
 
 
 		/*recogemos los datos de la base y vamos creando el script*/
-				print ("<div id = 'tablaCursos'>
+				print ("<div id = \"tablaCursos\">
 				
-				<form id = 'f' name = 'f' method = 'POST' action = 'asignaciones.php?idCurso'>"
+				<form id = \"f\" name = \"f\" method = \"POST\" action = \"asignaciones.php?idCurso\">"
 				
 				);
 				
@@ -99,11 +99,11 @@
 								<td>$nombreCurso</td>
 								<td>$siglaCurso </td>
 								
-								<td> <a href = 'estudiantes.php?id=$idCurso'> Estudiantes </a> </td>
+								<td> <a href = \"estudiantes.php?id=$idCurso\"> Estudiantes </a> </td>
 								<td> $creditosCurso</td>
 								<td> $horarioCurso  </td>
                                                                     <td>
-								<a href='asignaciones.php?idCurso=$idCurso'><img src='Icons/go-button.png'></a>	
+								<a href=\"asignaciones.php?idCurso=$idCurso\"><img src=\"Icons/go-button.png\"></a>	
 								</td>
 								</tr>\n");	
 				}
@@ -139,7 +139,7 @@
 								<td> $creditosCurso</td>
 								<td> $horarioCurso  </td>
                                                                     <td>
-								<a href='asignaciones.php?idCurso=$idCurso'><img src='Icons/go-button.png'></a>	
+								<a href=\"asignaciones.php?idCurso=$idCurso\"><img src=\"Icons/go-button.png\"></a>	
 								</td>
 								</tr>\n");	
 				}
