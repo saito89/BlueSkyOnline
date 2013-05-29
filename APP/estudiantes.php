@@ -123,9 +123,9 @@
 
 
 		/*recogemos los datos de la base y vamos creando el script*/
-				print ("<div id = 'tablaEstudiantes'>
+				print ("<div id = \"tablaEstudiantes\">
 				
-					<form id = 'f' name = 'f' method = 'POST' >		
+					<form id = \"f\" name = \"f\" method = \"POST\" >		
 				");
 				
 				
@@ -146,7 +146,7 @@
 								<td>$nombreEstudiante</td>
 								<td>$fechaNacimiento </td>
 								<td> $correo</td>
-								<td> <img src ='' name='btn_eliminarEstudiante' onClick = eliminarEstudiante($idEstudiante, $cursoID)/> </td>
+								<td> <img src =\"eliminar.png\" name=\"btn_eliminarEstudiante\" onClick = \"eliminarEstudiante($idEstudiante, $cursoID)\"/> </td>
 								
 								</tr>\n");	
 				}
@@ -156,16 +156,16 @@
 					print ("</form></div>");/*id = "tablaEstudiantes"*/
 
 
-				print("<br/><input type = 'button' id = 'buttonAgregarEst' onClick = 'enableAgregarEstudiante()'/>");
+			print("<br/><input type = \"button\" id = \"buttonAgregarEst\" onclick = \"enableAgregarEstudiante()\"/>");
 
 
-				print ("<div id = 'agregarEstudiantes' class = 'NoVisible'>");
+				print ("<div id = \"agregarEstudiantes\" class = \"NoVisible\">");
 					print ("<form>");
 					print ("
-					Carne: <input type = 'text' id = 'carneEstudiante' name='na2'/> <input type = 'button' value = 'Buscar' id = 'btn_getEstudiante'   onClick = 'getEstudiante()'><br/>
-					Nombre: <input type = 'text' id = 'nombreEstudiante' name='ne'/> <br/>
-					Fecha de nacimiento: <input type = 'text' id = 'fechaNacimiento' name='fn'/> <br/>
-					<input type = 'button' value = 'Agregar' id = 'btn_agregarEstudiante'   onClick = 'agregarEstudiante()'><br/>
+					Carne: <input type = \"text\" id = \"carneEstudiante\" name=\"na2\"/> <input type = \"button\" value = \"Buscar\" id = \"btn_getEstudiante\"   onClick = \"getEstudiante()\"><br/>
+					Nombre: <input type = \"text\" id = \"nombreEstudiante\" name=\"ne\"/> <br/>
+					Fecha de nacimiento: <input type = \"text\" id = \"fechaNacimiento\" name=\"fn\"/> <br/>
+					<button type = \"button\" value = \"Agregar\" id = \"btn_agregarEstudiante\"   onclick = \"agregarEstudiante()\"><br/>
 					");
 					print ("</form>");
 				
