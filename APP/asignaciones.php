@@ -212,9 +212,9 @@
 
 
 		/*recogemos los datos de la base y vamos creando el script*/
-				print ("<div id = 'tablaAsignaciones'>
+				print ("<div id = \"tablaAsignaciones\">
 				
-				<form id = 'f' name = 'f' method = 'POST' >"
+				<form id = \"f\" name = \"f\" method = \"POST\" >"
 				
 				);
 				$colnum = 0;
@@ -267,15 +267,15 @@
 							}
 							
 							
-							print ("<td> <img src='Icons/view.png' onclick = 'mostrarAsignacion($idAsignacion, $tipoUsuario)' />");
+							print ("<td> <img src=\"Icons/view.png\" onclick = \"mostrarAsignacion($idAsignacion, $tipoUsuario)\" />");
 									
 							if ($tipoUsuario == "1"){
 									print ("
-										<img src='Icons/delete.png' onclick = 'eliminarAsignacion($idAsignacion)'/> </td></tr>\n");
-								}else {
+										<img src=\"Icons/delete.png\" onclick = \"eliminarAsignacion($idAsignacion)\"/> </td></tr>\n");
+							}else {
 									
 									
-									print ("<img src='Icons/email.png' onclick = 'mostrarPanelParaMensaje($nombre, $fecha1, $calificacion)'/> </td></tr>\n");
+									print ("<img src=\"Icons/email.png\" onclick = \"mostrarPanelParaMensaje($nombre, $fecha, $calificacion)\"/> </td></tr>\n");
 						
 									
 									
@@ -284,29 +284,29 @@
 						
 					print ("</table>");
 					print ("<br/><br/><a href = \"index.html\"> Go back </a>");
-					print ("<br/><button type= 'button' value='Agregar Asignacion' name='btn_agregarAsignacion' onclick = 'enableAgregarAsignacion()'/>");
+					print ("<br/><button type= \"button\" value=\"Agregar Asignacion\" name=\"btn_agregarAsignacion\" onclick = \"enableAgregarAsignacion()\"/>");
 					print ("</form></div>");/*id = "tablaCursos"*/
 
 
 							
-				print ( "	<div id = 'agregarAsignacion' class = 'NoVisible' >
-							<form id = 'f2' name = 'f2' method = 'POST' >
+				print ( "	<div id = \"agregarAsignacion\" class = \"NoVisible\" >
+							<form id = \"f2\" name = \"f2\" method = \"POST\" >
 				
 				
 							<fieldset>
 								<legend> Nueva asignacion </legend>
-									Nombre de la asignacion: <input type = 'text' id = 'nombreAsignacion' name='na'/> <br/>
-									Fecha de asignacion: <input type = 'text' id = 'fechaAsignacion' name='fa'/> <br/>
+									Nombre de la asignacion: <input type = \"text\" id = \"nombreAsignacion\" name=\"na\"/> <br/>
+									Fecha de asignacion: <input type = \"text\" id = \"fechaAsignacion\" name=\"fa\"/> <br/>
 									<br/>
 							
 							
-							<div id = 'TA'>
-								<textarea id='elm1' name='elm1' rows='10' cols='80' style='width: 50%' >
+							<div id = \"TA\">
+								<textarea id=\"elm1\" name=\"elm1\" rows=\"10\" cols=\"80\" style=\"width: 50%\" >
 								</textarea>
 							</div>
 							
-							<div id = 'botonSubmit'>
-								<button type = 'button' value = 'Agregar Asignacion' name = 'btn_submitAsignacion' onclick = 'AgregarAsignacion()'/>
+							<div id = \"botonSubmit\">
+								<button type = \"button\" value = \"Agregar Asignacion\" name = \"btn_submitAsignacion\" onclick = \"AgregarAsignacion()\"/>
 							</div>
 							
 							
@@ -321,28 +321,28 @@
 						
 				
 				
-				print ( "	<div id = 'modificarAsignacion' class = 'NoVisible' >
-							<form id = 'f3' name = 'f3' method = 'POST' >
+				print ( "	<div id = \"modificarAsignacion\" class = \"NoVisible\" >
+							<form id = \"f3\" name = \"f3\" method = \"POST\" >
 				
 				
 							<fieldset>
 								<legend>Asignacion </legend>
-									Nombre de la asignacion: <input type = 'text' id = 'nombreAsignacion2' name='na2'/> <br/>
-									Fecha de asignacion: <input type = 'text' id = 'fechaAsignacion2' name='fa2'/> <br/>
+									Nombre de la asignacion: <input type = \"text\" id = \"nombreAsignacion2\" name=\"na2\"/> <br/>
+									Fecha de asignacion: <input type = \"text\" id = \"fechaAsignacion2\" name=\"fa2\"/> <br/>
 									<br/>
 							
 							
-							<div id = 'TA2'>
-								<textarea id='elm2' name='elm2' rows='10' cols='80' style='width: 50%' >
+							<div id = \"TA2\">
+								<textarea id=\"elm2\" name=\"elm2\" rows=\"10\" cols=\"80\" style=\"width: 50%\" >
 								</textarea>
 							</div>
 							
-							<div id = 'profesorDivModificar' class = 'NoVisible'>
-								<button type = 'button' value = 'Modificar' name = 'btn_modificar' onclick = 'modificarAsignacion()'/>
+							<div id = \"profesorDivModificar\" class = \"NoVisible\">
+								<button type = \"button\" value = \"Modificar\" name = \"btn_modificar\" onclick = \"modificarAsignacion()\"/>
 							</div>
 							
-							<div id = 'cerrarConsulta' >
-								<button type = 'button' value = 'Cerrar' name = 'btn_modificar' onclick = 'cerrarAsignacion()'/>
+							<div id = \"cerrarConsulta\" >
+								<button type = \"button\" value = \"Cerrar\" name = \"btn_modificar\" onclick = \"cerrarAsignacion()\"/>
 							</div>
 							
 							
@@ -354,37 +354,38 @@
 						");	
 						
 						
-				print ( "	<div id = 'PanelParaMensaje' class = 'NoVisible' >
-							<form id = 'f3' name = 'f3' method = 'POST' >
+				print ( "	<div id = \"PanelParaMensaje\" class = \"NoVisible\" >
+							<form id = \"f3\" name = \"f3\" method = \"POST\" >
 				
 				
 							<fieldset>
 								<legend> Nuevo mensaje </legend>
-									Nombre de la asignacion: <input type = 'text' disabled id = 'nombreAsignacionMensaje' name='na2'/> <br/>
-									Fecha de asignacion: <input type = 'text' disabled id = 'fechaAsignacionMensaje' name='fa2'/> <br/>
+									Nombre de la asignacion: <input type = \"text\" disabled id = \"nombreAsignacionMensaje\" name=\"na2\"/> <br/>
+									Fecha de asignacion: <input type = \"text\" disabled id = \"fechaAsignacionMensaje\" name=\"fa2\"/> <br/>
 									
 									
 									
-									Tipo de mensaje: <select id = 'opcionesDeMensaje'>
-														<option value='reclamo'>Reclamo</option>
-														<option value='consulta' selected>Consulta</option>
+							
+									Tipo de mensaje: <select id = \"opcionesDeMensaje\">
+														<option value=\"reclamo\">Reclamo</option>
+														<option value=\"consulta\" selected>Consulta</option>
 														
 													 </select>
 									
 									<br/>
 							
 							
-							<div id = 'areaDeMensaje'>
-								<textarea id='areaMensaje' name='areaMensaje' rows='10' cols='80' style='width: 50%' >
+							<div id = \"areaDeMensaje\">
+								<textarea id=\"areaMensaje\" name=\"areaMensaje\" rows=\"10\" cols=\"80\" style=\"width: 50%\" >
 								</textarea>
 							</div>
 							
-							<div id = 'bloqueEnviarMensaje' >
-								<button type = 'submit' value = 'Enviar' name = 'btn_enviarMensaje' onclick = 'enviarMensaje()'/>
+							<div id = \"bloqueEnviarMensaje\" >
+								<button type = \"submit\" value = \"Enviar\" name = \"btn_enviarMensaje\" onclick = \"enviarMensaje()\"/>
 							</div>
 							
-							<div id = 'cancelar' >
-								<button type = 'submit' value = 'Cerrar' name = 'btn_cancelarMensaje' onclick = 'ocultarPanelParaMensaje()'/>
+							<div id = \"cancelar\" >
+								<button type = \"submit\" value = \"Cerrar\" name = \"btn_cancelarMensaje\" onclick = \"ocultarPanelParaMensaje()\"/>
 							</div>
 							
 							
@@ -396,6 +397,9 @@
 						");		
 				
 			
+
+
+		mysql_close($conexion);
 		?>
 		
 		
