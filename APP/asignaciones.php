@@ -19,7 +19,7 @@
 			
 			
 		function agregarAsignacion (){
-			if (document.getElementById("nombreAsignacion").value == "" || document.getElementById("fechaAsignacion") == ""||document.getElementById("elm1").value == "" ){
+			if (document.getElementById("nombreAsignacion").value == "" || document.getElementById("fechaAsignacion") == ""||document.getElementById("elm1").value == ""|| document.getElementById("tipoAsignacion") == ""||document.getElementById("porcentajeAsignacion") == "" ||document.getElementById("medioAsignacion") == "" ){
 				/*POP UP error (complete la informacion)*/
 				alert("Complete correctamente la informacion");
 				}
@@ -31,6 +31,12 @@
 					  /* 
 					  AGREGAR A BD
 					  */
+					  var nombre = document.getElementById("nombreAsignacion").value;
+					  var fecha = document.getElementById("fechaAsignacion").value;
+					  var medio = document.getElementById("medioAsignacion").value;
+					  var porcentaje = document.getElementById("porcentajeAsignacion").value;
+					  var tipo = document.getElementById("tipoAsignacion").value;
+					  
                                           //asignacionI('$nombre','$descripcion','$fechaHoraAsignacion','$medioEntrega','$tipo','$porcentaje','$idCurso')")
 					  alert("Asignacion asignada");
 					  }
@@ -43,11 +49,14 @@
 			
 			}
 			
-		function mostrarAsignacion (id, tipoUsuario){
+		function mostrarAsignacion (id, tipoUsuario, nombre, descripcion, fecha1, medio, tipo, porcentaje){
 			/*retorna la asignacion  y se le debe asignar a estos espacios q estan en blanco*/
-			document.getElementById("nombreAsignacion2").value = "";
-			document.getElementById("fechaAsignacion2").value = "";
-			document.getElementById("elm1").value = "";
+			document.getElementById("nombreAsignacion2").value = nombre;
+			document.getElementById("fechaAsignacion2").value =fecha1;
+			document.getElementById("elm2").value = descripcion;
+			document.getElementById("medioAsignacion2").value =medio;
+			document.getElementById("tipoAsignacion2").value =tipo;
+			document.getElementById("porcentajeAsignacion2").value =porcentaje;
 			
 			document.getElementById("modificarAsignacion").className = "Visible";
 			if (tipoUsuario == "1") {
@@ -250,7 +259,8 @@
 							//$porcentaje = $fila['porcentaje'];
                             $porcentaje = $asignacion->getPorcentaje();
 
-
+			    $descripcion = "";
+			    
                             $calificacion = $asignacion->getCalificacion();
 
 							print ("<tr>
@@ -268,7 +278,7 @@
 							}
 							
 							
-							print ("<td> <img src=\"Icons/view.png\" onclick = \"mostrarAsignacion($idAsignacion, $tipoUsuario)\" />");
+							print ("<td> <img src=\"Icons/view.png\" onclick = \"mostrarAsignacion($idAsignacion, $tipoUsuario, $nombre, $descripcion, $fecha1, $medio, $tipo, $porcentaje)\" />");
 									
 							if ($tipoUsuario == "1"){
 									print ("
@@ -298,6 +308,9 @@
 								<legend> Nueva asignacion </legend>
 									Nombre de la asignacion: <input type = \"text\" id = \"nombreAsignacion\" name=\"na\"/> <br/>
 									Fecha de asignacion: <input type = \"text\" id = \"fechaAsignacion\" name=\"fa\"/> <br/>
+									Medio de asignacion: <input type = \"text\" id = \"medioAsignacion\" name=\"ma\"/> <br/>
+									Porcentaje de asignacion: <input type = \"text\" id = \"porcentajeAsignacion\" name=\"pa\"/> <br/>
+									Tipo de asignacion: <input type = \"text\" id = \"tipoAsignacion\" name=\"ta\"/> <br/>
 									<br/>
 							
 							
@@ -330,6 +343,9 @@
 								<legend>Asignacion </legend>
 									Nombre de la asignacion: <input type = \"text\" id = \"nombreAsignacion2\" name=\"na2\"/> <br/>
 									Fecha de asignacion: <input type = \"text\" id = \"fechaAsignacion2\" name=\"fa2\"/> <br/>
+									Medio de asignacion: <input type = \"text\" id = \"medioAsignacion2\" name=\"ma2\"/> <br/>
+									Porcentaje de asignacion: <input type = \"text\" id = \"porcentajeAsignacion2\" name=\"pa2\"/> <br/>
+									Tipo de asignacion: <input type = \"text\" id = \"tipoAsignacion2\" name=\"ta2\"/> <br/>
 									<br/>
 							
 							
