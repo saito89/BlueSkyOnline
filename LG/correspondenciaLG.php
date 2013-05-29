@@ -19,5 +19,17 @@ class correspondenciaLG
             echo $ex->getMessage();
         }        
     }
+    function correspondenciaI($_text,$_respuesta,$_idTipoCorrespondencia,$_idUsuario,$_idCurso)
+    {
+        try
+        {
+            $cAD = new correspondenciaDA();
+            return $cAD->correspondenciaI($_text,$_respuesta,$_idTipoCorrespondencia,$_idUsuario,$_idCurso);
+        }
+        catch(Exception $ex)
+        {
+            echo $ex->getMessage();
+        } 
+    }
 }
 ?>

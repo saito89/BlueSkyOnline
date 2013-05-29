@@ -31,6 +31,7 @@
 					  /* 
 					  AGREGAR A BD
 					  */
+                                          //asignacionI('$nombre','$descripcion','$fechaHoraAsignacion','$medioEntrega','$tipo','$porcentaje','$idCurso')")
 					  alert("Asignacion asignada");
 					  }
 							
