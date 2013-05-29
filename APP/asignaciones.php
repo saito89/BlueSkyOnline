@@ -218,6 +218,19 @@
             session_start();
             $tipoUsuario = $_SESSION['tipoUsuario'];
             $aLG = new asignacionLG();
+            
+            if($_POST['btn_submitAsignacion'])
+            {
+                     $asi = new asignacionEN();
+                     $asi->setNombre($_POST('na'));
+                     $asi->setDescripcion($_POST('elm1'));
+                     $asi->setFechaHoraAsignacion($_POST('fa'));
+                     $asi->setMedioEntrega($_POST('ma'));
+                     $asi->setTipo($_POST('ta'));
+                     $asi->setPorcentaje($_POST('pa'));
+                     $asi->setPorcentaje($cursoID);
+                     asignacionI($asi);
+            }
 
 
 
@@ -295,13 +308,13 @@
 						
 					print ("</table>");
 					print ("<br/><br/><a href = \"index.html\"> Go back </a>");
-					print ("<br/><button type= \"button\" value=\"Agregar Asignacion\" name=\"btn_agregarAsignacion\" onclick = \"enableAgregarAsignacion()\"/>");
+					print ("<br/><button type= 'button' value='Agregar Asignacion' name='btn_agregarAsignacion' onclick = 'enableAgregarAsignacion()'/>");
 					print ("</form></div>");/*id = "tablaCursos"*/
 
 
 							
 				print ( "	<div id = \"agregarAsignacion\" class = \"NoVisible\" >
-							<form id = \"f2\" name = \"f2\" method = \"POST\" >
+							<form id = \"f2\" name = \"f2\" method = \"POST\" action='asignaciones.php' >
 				
 				
 							<fieldset>
@@ -320,7 +333,7 @@
 							</div>
 							
 							<div id = \"botonSubmit\">
-								<button type = \"button\" value = \"Agregar Asignacion\" name = \"btn_submitAsignacion\" onclick = \"AgregarAsignacion()\"/>
+								<button type = \"submit\" value = \"Agregar Asignacion\" name = \"btn_submitAsignacion\" onclick = \"AgregarAsignacion()\"/>
 							</div>
 							
 							
